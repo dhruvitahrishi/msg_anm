@@ -1,0 +1,89 @@
+html,
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color:rebeccapurple ;
+}
+@mixin dim($w,$h) {
+    width: $w;
+    height: $h;
+}
+.phone{
+    @include dim(4in,6in);
+    background-color:#d84646 ;
+    margin-left: 6in;
+    margin-top: 2in;
+    text-align: center;
+    border-radius: 10%;
+    transition: all 2.5s linear;
+}
+.common{
+    text-align: center;
+    display: inline-block;
+}
+$gradientcolor:linear-gradient(to right,rgb(255, 165, 0) , rgb(236, 113, 64));
+.screen{
+    @include dim(3.6in,5.6in);
+    @extend .common;
+    background-image: $gradientcolor;
+    margin: 0.2in auto auto auto; 
+    border-radius: 1%;
+}
+.overlay {
+    border-radius: 1%;
+    position: absolute;
+    margin: 0.4in auto auto auto;
+    @include dim(3.6in,5in);
+    opacity: 0;
+    transition: .5s ease;
+    background-image: $gradientcolor;
+  }
+  .screen:hover .overlay{
+    opacity: 1;
+  }
+.text{
+    color: #d84646;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.camera{
+    background-color: darkgrey;
+    @include dim(3.6in,0.4in );
+    @extend .common;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 4%;
+    margin: auto auto auto auto;
+}
+@mixin cam($br) {
+    border-radius: $br;
+    display: inline-block;
+    background-color: black;
+}
+.c1{
+    @include cam(50%);
+    @include dim(0.19in,0.2in);
+    margin-right: 0.2in;
+    margin-top: 0.1in;
+}
+.c2{
+    @include dim(0.1in,0.1in);
+    @include cam(50%);
+}
+.c3{
+    @include dim(0.1in,0.1in);
+    @include cam(50%);
+}
+.bar{
+    @include dim(1.5in,0.1in);
+    @include cam(20%);
+}
